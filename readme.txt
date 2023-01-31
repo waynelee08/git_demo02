@@ -1,7 +1,2 @@
-hello a , refresh git again.
-2222222222222222222222222222
-hahahahah, amended by bug_fix.
-fixed by master.
-fixed by bug_fix.
-add via remote repos
-from new one .
+1b66a12a770c46ac8169d8ea319f8459
+
