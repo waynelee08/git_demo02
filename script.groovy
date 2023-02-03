@@ -13,3 +13,5 @@ def deployApp(){
         echo "deploying with ${SEVER_CREDENTIALS}"
         echo "deploying version ${params.VERSION}"
 } 
+
+return this
