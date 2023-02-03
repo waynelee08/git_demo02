@@ -1,4 +1,4 @@
-
+def gv
 pipeline{
   agent any
   environment{
@@ -10,10 +10,16 @@ pipeline{
     booleanParam(name: "excuteTests", defaultValue : true, description: "not decided yet")
   }
   stages{
+    stage("init") {
+      script {
+        gv = load "script.groovy"
+      }
+    }
     stage("build"){
       steps{
-        echo "building the app....."
-        echo "building verion ${NEW_VERSION}"
+        script {
+          gv.buildAppp()
+        }
       }
     }
     
@@ -24,15 +30,17 @@ pipeline{
         }
       }
       steps{
-        echo "testing the app....."
+        script {
+          gv.testdAppp()
+        }
       }
     }
     
     stage("deploy"){
       steps{
-        echo "deploying the app....."
-        echo "deploying with ${SEVER_CREDENTIALS}"
-        echo "deploying version ${params.VERSION}"
+        script {
+          gv.deploydAppp()
+        }
       }
     }
     
