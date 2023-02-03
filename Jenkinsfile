@@ -31,13 +31,5 @@ pipeline{
       }
     }
     
-    post{
-      always{
-        // sending email notifications
-      }
-      success{
-        
-      }
-    }
   }
 }
