@@ -20,21 +20,21 @@ pipeline {
         }
 
         stage("build jar") {
-                    steps {
-                        script {
+            steps {
+                script {
 //                             gv.buildJar()
-                            buildImage()
-                        }
-                    }
+                    buildImage()
                 }
+             }
+        }
 
         stage("build image") {
             steps {
                 script {
-                   gv.buildImage()
-                    }
-                    
+//                    gv.buildImage()
+                   buildImage()
                 }
+                    
             }
         }
         
@@ -45,5 +45,4 @@ pipeline {
                 }
             }
         }
-    }
 }
