@@ -1,3 +1,4 @@
+#!/sur/bin/env groovy
 @Library("jenkins-SL")
 
 def gv
