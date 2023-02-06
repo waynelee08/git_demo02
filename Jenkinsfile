@@ -1,5 +1,11 @@
 #!/sur/bin/env groovy
-@Library("jenkins-SL")
+library identifier: 'jenkins-SL@master', retriever: modernSCM(
+        [
+                $class: 'GitSCMSource',
+                remote: 'https://github.com/waynelee08/jenkins-SL.git',
+                credentialId: 'github-redential'
+        ]
+)
 
 def gv
 
@@ -29,11 +35,13 @@ pipeline {
              }
         }
 
-        stage("build image") {
+        stage("build and push image") {
             steps {
                 script {
-//                    gv.buildImage()
-                   buildImage()
+//                    gv.buildImage
+                   buildImage 'wayneleedevops/demo-app:jma-2.0'
+                    dockerLogin()
+                    dockerPush 'wayneleedevops/demo-app:jma-2.0'
                 }
                     
             }
