@@ -2,7 +2,7 @@
 library identifier: 'jenkins-SL@master', retriever: modernSCM(
         [
                 $class: 'GitSCMSource',
-                remote: 'https://github.com/waynelee08/jenkins-SL.git',
+                remote: 'https://github.com/waynelee08/Jenkins-sharedLib.git',
                 credentialId: 'github-redential'
         ]
 )
