@@ -53,8 +53,9 @@ pipeline{
           gv.deployApp()
           echo "Deploying to ${ENV01}"
           echo "Deploying to ${ENV02}"
-          def dockerCmd = "docker -v"
+          def dockerCmd = "docker-compose -f docker-compose.yaml up - detach"
           sshagent(['ec2-server-key']) {
+            sh "scp docker-compose.yaml ec2-user@54.169.145.136:/home/ec2-user"
             sh "ssh -o StrictHostKeyChecking=no ec2-user@54.169.145.136 ${dockerCmd}"
           }
         }
