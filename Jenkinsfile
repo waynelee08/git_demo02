@@ -53,6 +53,10 @@ pipeline{
           gv.deployApp()
           echo "Deploying to ${ENV01}"
           echo "Deploying to ${ENV02}"
+          def dockerCmd = "docker -v"
+          sshagent(['ec2-server-key']) {
+            sh "ssh -o StrictHostKeyChecking=no ec2-user@54.169.145.136 ${dockerCmd}"
+          }
         }
       }
     }
